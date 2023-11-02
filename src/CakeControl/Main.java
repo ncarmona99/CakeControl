@@ -2,7 +2,7 @@ package CakeControl;
 
 /**
  *
- * @author c4dtu
+ * @author Nicolás Carmona y Eduardo Reyes
  */
 public class Main {
     
