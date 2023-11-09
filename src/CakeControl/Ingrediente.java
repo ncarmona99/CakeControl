@@ -4,26 +4,32 @@ package CakeControl;
 /**
  *
  * @author Eduardo Reyes
- * @version 05-11-2023
+ * @version 08-11-2023
  */
 public class Ingrediente {
-    protected int codigo;
-    protected int valorCosto;
-    protected int stock;
-    protected String unMedida;
-    protected String nombre;
-    protected String marca;
+    private int codigo;
+    private int valorCosto;
+    private int stock;
+    private int mlOGr;
+    private String unMedida;
+    private String nombre;
+    private String marca;
+    private String categoria;
+    private String caracteristica;
 
     public Ingrediente() {
     }
 
-    public Ingrediente(int codigo, int valorCosto, int stock, String unMedida, String nombre, String marca) {
+    public Ingrediente(int codigo, int valorCosto, int stock, int mlOGr, String unMedida, String nombre, String marca, String categoria, String caracteristica) {
         this.codigo = codigo;
         this.valorCosto = valorCosto;
         this.stock = stock;
+        this.mlOGr = mlOGr;
         this.unMedida = unMedida;
         this.nombre = nombre;
         this.marca = marca;
+        this.categoria = categoria;
+        this.caracteristica = caracteristica;
     }
 
     public int getCodigo() {
@@ -50,6 +56,14 @@ public class Ingrediente {
         this.stock = stock;
     }
 
+    public int getMlOGr() {
+        return mlOGr;
+    }
+
+    public void setMlOGr(int mlOGr) {
+        this.mlOGr = mlOGr;
+    }
+
     public String getUnMedida() {
         return unMedida;
     }
@@ -74,14 +88,32 @@ public class Ingrediente {
         this.marca = marca;
     }
 
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getCaracteristica() {
+        return caracteristica;
+    }
+
+    public void setCaracteristica(String caracteristica) {
+        this.caracteristica = caracteristica;
+    }
+
     @Override
     public String toString() {
-        return "Ingrediente{" + "codigo=" + codigo + ", valorCosto=" + valorCosto + ", stock=" + stock + ", unMedida=" + unMedida + ", nombre=" + nombre + ", marca=" + marca + '}';
+        return "Ingrediente{" + "codigo=" + codigo + ", valorCosto=" + valorCosto + ", stock=" + stock + ", mlOGr=" + mlOGr + ", unMedida=" + unMedida + ", nombre=" + nombre + ", marca=" + marca + ", categoria=" + categoria + ", caracteristica=" + caracteristica + '}';
     }
     
     
-   
-            
     
     
+    
+    
+    
+
 }
