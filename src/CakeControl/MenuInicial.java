@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package CakeControl;
 
 /**
  *
- * @author c4dtu
+ * @author Nicolás
  */
 public class MenuInicial extends javax.swing.JFrame {
 
@@ -135,24 +131,33 @@ public class MenuInicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtn_ventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_ventaActionPerformed
+        this.hide();
         MenuVenta venta = new MenuVenta();
         venta.show();
     }//GEN-LAST:event_jbtn_ventaActionPerformed
 
     private void jbtn_registroVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_registroVentaActionPerformed
-        // TODO add your handling code here:
+        this.hide();
+        MenuRegistroDeVenta registroVenta = new MenuRegistroDeVenta();
+        registroVenta.show();
     }//GEN-LAST:event_jbtn_registroVentaActionPerformed
 
     private void jbtn_ingredientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_ingredientesActionPerformed
-        // TODO add your handling code here:
+        this.hide();
+        MenuIngredientes ingredientes = new MenuIngredientes();
+        ingredientes.show();
     }//GEN-LAST:event_jbtn_ingredientesActionPerformed
 
     private void jbtn_sociosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_sociosActionPerformed
-        // TODO add your handling code here:
+        this.hide();
+        MenuSocios socios = new MenuSocios();
+        socios.show();
     }//GEN-LAST:event_jbtn_sociosActionPerformed
 
     private void jbtn_preparacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_preparacionesActionPerformed
-        // TODO add your handling code here:
+        this.hide();
+        MenuPreparaciones preparaciones = new MenuPreparaciones();
+        preparaciones.show();
     }//GEN-LAST:event_jbtn_preparacionesActionPerformed
 
     private void jbtn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_salirActionPerformed

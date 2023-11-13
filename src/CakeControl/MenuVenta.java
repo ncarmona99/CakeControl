@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package CakeControl;
 
 /**
  *
- * @author c4dtu
+ * @author Nicolás
  */
 public class MenuVenta extends javax.swing.JFrame {
 
@@ -194,7 +190,9 @@ public class MenuVenta extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtn_totalCompraActionPerformed
 
     private void jbtn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_volverActionPerformed
-        // TODO add your handling code here:
+        this.hide();
+        MenuInicial inicial = new MenuInicial();
+        inicial.show();
     }//GEN-LAST:event_jbtn_volverActionPerformed
 
     private void jbtn_ingresarSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_ingresarSocioActionPerformed
