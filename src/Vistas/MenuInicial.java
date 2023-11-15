@@ -1,4 +1,6 @@
-package CakeControl;
+package Vistas;
+
+import Vistas.Socios.MenuSocios;
 
 /**
  *

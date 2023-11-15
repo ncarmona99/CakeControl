@@ -1,15 +1,15 @@
-package CakeControl;
+package Vistas;
 
 /**
  *
  * @author Nicolás
  */
-public class MenuSocios extends javax.swing.JFrame {
+public class MenuRegistroDeVenta extends javax.swing.JFrame {
 
     /**
      * Creates new form MenuIngredientes
      */
-    public MenuSocios() {
+    public MenuRegistroDeVenta() {
         initComponents();
     }
 
@@ -23,43 +23,25 @@ public class MenuSocios extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jbtn_registrarSocio = new javax.swing.JButton();
-        jbtn_modDatosSocio = new javax.swing.JButton();
-        jbtn_DesvincularSocio = new javax.swing.JButton();
-        jbtn_listadoSocios = new javax.swing.JButton();
+        jbtn_ventasDia = new javax.swing.JButton();
+        jbtn_ventasHistorico = new javax.swing.JButton();
         jbtn_volver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jbtn_registrarSocio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Crear.png"))); // NOI18N
-        jbtn_registrarSocio.setText("Registrar Socio");
-        jbtn_registrarSocio.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_ventasDia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Carrito.png"))); // NOI18N
+        jbtn_ventasDia.setText("Ventas del Día");
+        jbtn_ventasDia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_registrarSocioActionPerformed(evt);
+                jbtn_ventasDiaActionPerformed(evt);
             }
         });
 
-        jbtn_modDatosSocio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Modificar.png"))); // NOI18N
-        jbtn_modDatosSocio.setText("Modificar Datos del Socio");
-        jbtn_modDatosSocio.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_ventasHistorico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Modificar.png"))); // NOI18N
+        jbtn_ventasHistorico.setText("Ventas histórico");
+        jbtn_ventasHistorico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_modDatosSocioActionPerformed(evt);
-            }
-        });
-
-        jbtn_DesvincularSocio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Borrar.png"))); // NOI18N
-        jbtn_DesvincularSocio.setText("Desvincular Socio");
-        jbtn_DesvincularSocio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_DesvincularSocioActionPerformed(evt);
-            }
-        });
-
-        jbtn_listadoSocios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Stock_Consulta.png"))); // NOI18N
-        jbtn_listadoSocios.setText("Listado de Socios");
-        jbtn_listadoSocios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_listadoSociosActionPerformed(evt);
+                jbtn_ventasHistoricoActionPerformed(evt);
             }
         });
 
@@ -79,26 +61,20 @@ public class MenuSocios extends javax.swing.JFrame {
                 .addGap(70, 70, 70)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbtn_volver)
-                    .addComponent(jbtn_listadoSocios)
-                    .addComponent(jbtn_DesvincularSocio)
-                    .addComponent(jbtn_modDatosSocio)
-                    .addComponent(jbtn_registrarSocio))
-                .addContainerGap(730, Short.MAX_VALUE))
+                    .addComponent(jbtn_ventasHistorico)
+                    .addComponent(jbtn_ventasDia))
+                .addContainerGap(773, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(jbtn_registrarSocio)
+                .addComponent(jbtn_ventasDia)
                 .addGap(18, 18, 18)
-                .addComponent(jbtn_modDatosSocio)
-                .addGap(18, 18, 18)
-                .addComponent(jbtn_DesvincularSocio)
-                .addGap(18, 18, 18)
-                .addComponent(jbtn_listadoSocios)
+                .addComponent(jbtn_ventasHistorico)
                 .addGap(18, 18, 18)
                 .addComponent(jbtn_volver)
-                .addContainerGap(279, Short.MAX_VALUE))
+                .addContainerGap(383, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -121,21 +97,13 @@ public class MenuSocios extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbtn_registrarSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_registrarSocioActionPerformed
+    private void jbtn_ventasDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_ventasDiaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jbtn_registrarSocioActionPerformed
+    }//GEN-LAST:event_jbtn_ventasDiaActionPerformed
 
-    private void jbtn_modDatosSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_modDatosSocioActionPerformed
+    private void jbtn_ventasHistoricoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_ventasHistoricoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jbtn_modDatosSocioActionPerformed
-
-    private void jbtn_DesvincularSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_DesvincularSocioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbtn_DesvincularSocioActionPerformed
-
-    private void jbtn_listadoSociosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_listadoSociosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbtn_listadoSociosActionPerformed
+    }//GEN-LAST:event_jbtn_ventasHistoricoActionPerformed
 
     private void jbtn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_volverActionPerformed
         this.hide();
@@ -160,14 +128,18 @@ public class MenuSocios extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuSocios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuRegistroDeVenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuSocios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuRegistroDeVenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuSocios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuRegistroDeVenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuSocios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuRegistroDeVenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -176,17 +148,15 @@ public class MenuSocios extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuSocios().setVisible(true);
+                new MenuRegistroDeVenta().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton jbtn_DesvincularSocio;
-    private javax.swing.JButton jbtn_listadoSocios;
-    private javax.swing.JButton jbtn_modDatosSocio;
-    private javax.swing.JButton jbtn_registrarSocio;
+    private javax.swing.JButton jbtn_ventasDia;
+    private javax.swing.JButton jbtn_ventasHistorico;
     private javax.swing.JButton jbtn_volver;
     // End of variables declaration//GEN-END:variables
 }
