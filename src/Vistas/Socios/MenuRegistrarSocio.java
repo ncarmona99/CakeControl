@@ -1,7 +1,9 @@
 package Vistas.Socios;
 
+import CakeControl.Socio;
+import Controladores.controladorSocio;
 import Vistas.MenuInicial;
-import javax.swing.JFormattedTextField;
+import javax.swing.JTextField;
 
 /**
  *
@@ -15,7 +17,6 @@ public class MenuRegistrarSocio extends javax.swing.JFrame {
     public MenuRegistrarSocio() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,15 +33,15 @@ public class MenuRegistrarSocio extends javax.swing.JFrame {
         jlbl_celularSocio = new javax.swing.JLabel();
         jlbl_correoSocio = new javax.swing.JLabel();
         jlbl_fecnacSocio = new javax.swing.JLabel();
-        jtxt_numrun = new javax.swing.JFormattedTextField();
-        jtxt_dvrun = new javax.swing.JFormattedTextField();
-        jtxt_nombreSocio = new javax.swing.JFormattedTextField();
-        jtxt_direccion = new javax.swing.JFormattedTextField();
-        jtxt_celular = new javax.swing.JFormattedTextField();
-        jtxt_correo = new javax.swing.JFormattedTextField();
-        jtxt_fecnac = new javax.swing.JFormattedTextField();
         jbtn_volver = new javax.swing.JButton();
         jbtn_aceptar = new javax.swing.JButton();
+        jtxt_numrun = new javax.swing.JTextField();
+        jtxt_dvrun = new javax.swing.JTextField();
+        jtxt_nombreSocio = new javax.swing.JTextField();
+        jtxt_direccion = new javax.swing.JTextField();
+        jtxt_celular = new javax.swing.JTextField();
+        jtxt_correo = new javax.swing.JTextField();
+        jtxt_fecnac = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,21 +59,6 @@ public class MenuRegistrarSocio extends javax.swing.JFrame {
 
         jlbl_fecnacSocio.setText("Fecha de nacimiento");
 
-        jtxt_numrun.setText("123456789");
-        jtxt_numrun.setToolTipText("");
-
-        jtxt_dvrun.setText("0");
-
-        jtxt_nombreSocio.setText("Juán Pérez");
-
-        jtxt_direccion.setText("Sargento Aldea 925");
-
-        jtxt_celular.setText("912345678");
-
-        jtxt_correo.setText("contacto@text.com");
-
-        jtxt_fecnac.setText("10/11/1999");
-
         jbtn_volver.setText("Volver");
         jbtn_volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,6 +70,21 @@ public class MenuRegistrarSocio extends javax.swing.JFrame {
         jbtn_aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtn_aceptarActionPerformed(evt);
+            }
+        });
+
+        jtxt_numrun.setToolTipText("");
+        jtxt_numrun.setActionCommand("<Not Set>");
+
+        jtxt_nombreSocio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_nombreSocioActionPerformed(evt);
+            }
+        });
+
+        jtxt_fecnac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_fecnacActionPerformed(evt);
             }
         });
 
@@ -104,15 +105,15 @@ public class MenuRegistrarSocio extends javax.swing.JFrame {
                     .addComponent(jlbl_numrunSocio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jtxt_dvrun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtxt_direccion, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
+                    .addComponent(jbtn_volver)
+                    .addComponent(jtxt_numrun, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxt_dvrun, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtxt_nombreSocio)
-                    .addComponent(jtxt_numrun, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtxt_fecnac, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtxt_celular, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtxt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbtn_volver))
-                .addContainerGap(394, Short.MAX_VALUE))
+                    .addComponent(jtxt_direccion)
+                    .addComponent(jtxt_correo, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
+                    .addComponent(jtxt_celular, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxt_fecnac, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(554, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,14 +143,14 @@ public class MenuRegistrarSocio extends javax.swing.JFrame {
                     .addComponent(jlbl_correoSocio)
                     .addComponent(jtxt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlbl_fecnacSocio)
                     .addComponent(jtxt_fecnac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtn_aceptar)
                     .addComponent(jbtn_volver))
-                .addContainerGap(244, Short.MAX_VALUE))
+                .addContainerGap(246, Short.MAX_VALUE))
         );
 
         pack();
@@ -162,8 +163,25 @@ public class MenuRegistrarSocio extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtn_volverActionPerformed
 
     private void jbtn_aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_aceptarActionPerformed
-        // TODO add your handling code here:
+        controladorSocio contSocio = new controladorSocio();
+        Socio socio = new Socio();
+        socio.setNumrun(Integer.parseInt(this.getJtxt_numrun().getText()));
+        socio.setDvrun(this.getJtxt_dvrun().getText().charAt(0));
+        socio.setNombre(this.getJtxt_nombreSocio().getText());
+        socio.setDireccion(this.getJtxt_direccion().getText());
+        socio.setCelular(this.getJtxt_celular().getText());
+        socio.setCorreo(this.getJtxt_correo().getText());
+        socio.setCantCompra(0);
+        contSocio.ingresarSocio();
     }//GEN-LAST:event_jbtn_aceptarActionPerformed
+
+    private void jtxt_fecnacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_fecnacActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_fecnacActionPerformed
+
+    private void jtxt_nombreSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_nombreSocioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_nombreSocioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,69 +228,70 @@ public class MenuRegistrarSocio extends javax.swing.JFrame {
     private javax.swing.JLabel jlbl_fecnacSocio;
     private javax.swing.JLabel jlbl_nombreSocio;
     private javax.swing.JLabel jlbl_numrunSocio;
-    private javax.swing.JFormattedTextField jtxt_celular;
-    private javax.swing.JFormattedTextField jtxt_correo;
-    private javax.swing.JFormattedTextField jtxt_direccion;
-    private javax.swing.JFormattedTextField jtxt_dvrun;
-    private javax.swing.JFormattedTextField jtxt_fecnac;
-    private javax.swing.JFormattedTextField jtxt_nombreSocio;
-    private javax.swing.JFormattedTextField jtxt_numrun;
+    private javax.swing.JTextField jtxt_celular;
+    private javax.swing.JTextField jtxt_correo;
+    private javax.swing.JTextField jtxt_direccion;
+    private javax.swing.JTextField jtxt_dvrun;
+    private javax.swing.JTextField jtxt_fecnac;
+    private javax.swing.JTextField jtxt_nombreSocio;
+    private javax.swing.JTextField jtxt_numrun;
     // End of variables declaration//GEN-END:variables
 
-    public JFormattedTextField getJtxt_celular() {
+    public JTextField getJtxt_celular() {
         return jtxt_celular;
     }
 
-    public void setJtxt_celular(JFormattedTextField jtxt_celular) {
+    public void setJtxt_celular(JTextField jtxt_celular) {
         this.jtxt_celular = jtxt_celular;
     }
 
-    public JFormattedTextField getJtxt_correo() {
+    public JTextField getJtxt_correo() {
         return jtxt_correo;
     }
 
-    public void setJtxt_correo(JFormattedTextField jtxt_correo) {
+    public void setJtxt_correo(JTextField jtxt_correo) {
         this.jtxt_correo = jtxt_correo;
     }
 
-    public JFormattedTextField getJtxt_direccion() {
+    public JTextField getJtxt_direccion() {
         return jtxt_direccion;
     }
 
-    public void setJtxt_direccion(JFormattedTextField jtxt_direccion) {
+    public void setJtxt_direccion(JTextField jtxt_direccion) {
         this.jtxt_direccion = jtxt_direccion;
     }
 
-    public JFormattedTextField getJtxt_dvrun() {
+    public JTextField getJtxt_dvrun() {
         return jtxt_dvrun;
     }
 
-    public void setJtxt_dvrun(JFormattedTextField jtxt_dvrun) {
+    public void setJtxt_dvrun(JTextField jtxt_dvrun) {
         this.jtxt_dvrun = jtxt_dvrun;
     }
 
-    public JFormattedTextField getJtxt_fecnac() {
+    public JTextField getJtxt_fecnac() {
         return jtxt_fecnac;
     }
 
-    public void setJtxt_fecnac(JFormattedTextField jtxt_fecnac) {
+    public void setJtxt_fecnac(JTextField jtxt_fecnac) {
         this.jtxt_fecnac = jtxt_fecnac;
     }
 
-    public JFormattedTextField getJtxt_nombreSocio() {
+    public JTextField getJtxt_nombreSocio() {
         return jtxt_nombreSocio;
     }
 
-    public void setJtxt_nombreSocio(JFormattedTextField jtxt_nombreSocio) {
+    public void setJtxt_nombreSocio(JTextField jtxt_nombreSocio) {
         this.jtxt_nombreSocio = jtxt_nombreSocio;
     }
 
-    public JFormattedTextField getJtxt_numrun() {
+    public JTextField getJtxt_numrun() {
         return jtxt_numrun;
     }
 
-    public void setJtxt_numrun(JFormattedTextField jtxt_numrun) {
+    public void setJtxt_numrun(JTextField jtxt_numrun) {
         this.jtxt_numrun = jtxt_numrun;
     }
+
 
 }

@@ -124,7 +124,9 @@ public class MenuSocios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtn_registrarSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_registrarSocioActionPerformed
-        // TODO add your handling code here:
+        this.hide();
+        MenuRegistrarSocio regSocio = new MenuRegistrarSocio();
+        regSocio.show();
     }//GEN-LAST:event_jbtn_registrarSocioActionPerformed
 
     private void jbtn_modDatosSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_modDatosSocioActionPerformed

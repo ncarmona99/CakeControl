@@ -1,7 +1,5 @@
 package CakeControl;
 
-import Vistas.Socios.MenuSocios;
-import Vistas.Socios.MenuRegistrarSocio;
 import java.util.Date;
 
 /**
@@ -17,8 +15,6 @@ public class Socio {
     private String correo;
     private Date fecNac;
     private int cantCompra; //Cantidad de compras realizadas por el cliente
-    
-    MenuRegistrarSocio menuRegistrarSocio = new MenuRegistrarSocio();
 
     public Socio() {
     }
