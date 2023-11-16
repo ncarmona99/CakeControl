@@ -7,14 +7,14 @@ import java.util.Date;
  * @author Nicolás
  */
 public class Socio {
-    private int numrun;
-    private char dvrun;
-    private String nombre;
-    private String direccion;
-    private String celular;
-    private String correo;
-    private Date fecNac;
-    private int cantCompra; //Cantidad de compras realizadas por el cliente
+    private static int numrun;
+    private static char dvrun;
+    private static String nombre;
+    private static String direccion;
+    private static String celular;
+    private static String correo;
+    private static Date fecNac;
+    private static int cantCompra; //Cantidad de compras realizadas por el cliente
 
     public Socio() {
     }

@@ -3,7 +3,6 @@ package Vistas.Socios;
 import CakeControl.Socio;
 import Controladores.controladorSocio;
 import Vistas.MenuInicial;
-import javax.swing.JTextField;
 
 /**
  *
@@ -75,6 +74,11 @@ public class MenuRegistrarSocio extends javax.swing.JFrame {
 
         jtxt_numrun.setToolTipText("");
         jtxt_numrun.setActionCommand("<Not Set>");
+        jtxt_numrun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_numrunActionPerformed(evt);
+            }
+        });
 
         jtxt_nombreSocio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,19 +162,19 @@ public class MenuRegistrarSocio extends javax.swing.JFrame {
 
     private void jbtn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_volverActionPerformed
         this.hide();
-        MenuInicial inicial = new MenuInicial();
-        inicial.show();
+        MenuSocios menuSocios = new MenuSocios();
+        menuSocios.show();
     }//GEN-LAST:event_jbtn_volverActionPerformed
 
     private void jbtn_aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_aceptarActionPerformed
         controladorSocio contSocio = new controladorSocio();
         Socio socio = new Socio();
-        socio.setNumrun(Integer.parseInt(this.getJtxt_numrun().getText()));
-        socio.setDvrun(this.getJtxt_dvrun().getText().charAt(0));
-        socio.setNombre(this.getJtxt_nombreSocio().getText());
-        socio.setDireccion(this.getJtxt_direccion().getText());
-        socio.setCelular(this.getJtxt_celular().getText());
-        socio.setCorreo(this.getJtxt_correo().getText());
+        socio.setNumrun(Integer.parseInt(this.jtxt_numrun.getText()));
+        socio.setDvrun(this.jtxt_dvrun.getText().charAt(0));
+        socio.setNombre(this.jtxt_nombreSocio.getText());
+        socio.setDireccion(this.jtxt_direccion.getText());
+        socio.setCelular(this.jtxt_celular.getText());
+        socio.setCorreo(this.jtxt_correo.getText());
         socio.setCantCompra(0);
         contSocio.ingresarSocio();
     }//GEN-LAST:event_jbtn_aceptarActionPerformed
@@ -182,6 +186,10 @@ public class MenuRegistrarSocio extends javax.swing.JFrame {
     private void jtxt_nombreSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_nombreSocioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxt_nombreSocioActionPerformed
+
+    private void jtxt_numrunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_numrunActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_numrunActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,62 +244,6 @@ public class MenuRegistrarSocio extends javax.swing.JFrame {
     private javax.swing.JTextField jtxt_nombreSocio;
     private javax.swing.JTextField jtxt_numrun;
     // End of variables declaration//GEN-END:variables
-
-    public JTextField getJtxt_celular() {
-        return jtxt_celular;
-    }
-
-    public void setJtxt_celular(JTextField jtxt_celular) {
-        this.jtxt_celular = jtxt_celular;
-    }
-
-    public JTextField getJtxt_correo() {
-        return jtxt_correo;
-    }
-
-    public void setJtxt_correo(JTextField jtxt_correo) {
-        this.jtxt_correo = jtxt_correo;
-    }
-
-    public JTextField getJtxt_direccion() {
-        return jtxt_direccion;
-    }
-
-    public void setJtxt_direccion(JTextField jtxt_direccion) {
-        this.jtxt_direccion = jtxt_direccion;
-    }
-
-    public JTextField getJtxt_dvrun() {
-        return jtxt_dvrun;
-    }
-
-    public void setJtxt_dvrun(JTextField jtxt_dvrun) {
-        this.jtxt_dvrun = jtxt_dvrun;
-    }
-
-    public JTextField getJtxt_fecnac() {
-        return jtxt_fecnac;
-    }
-
-    public void setJtxt_fecnac(JTextField jtxt_fecnac) {
-        this.jtxt_fecnac = jtxt_fecnac;
-    }
-
-    public JTextField getJtxt_nombreSocio() {
-        return jtxt_nombreSocio;
-    }
-
-    public void setJtxt_nombreSocio(JTextField jtxt_nombreSocio) {
-        this.jtxt_nombreSocio = jtxt_nombreSocio;
-    }
-
-    public JTextField getJtxt_numrun() {
-        return jtxt_numrun;
-    }
-
-    public void setJtxt_numrun(JTextField jtxt_numrun) {
-        this.jtxt_numrun = jtxt_numrun;
-    }
 
 
 }
