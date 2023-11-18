@@ -70,6 +70,13 @@ public class controladorSocio {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/cakecontrol","root", "");
             String query = "DELETE FROM socio WHERE numrun_socio = '"+socio.getNumrun()+"'";
             connection.createStatement().executeUpdate(query);
+            socio.setCantCompra(0);
+            socio.setCelular(null);
+            socio.setCorreo(null);
+            socio.setDireccion(null);
+            socio.setNombre(null);
+            socio.setFecNac(null);
+            
             JOptionPane.showMessageDialog(null, "Socio desvinculado correctamente");
             
         }catch (Exception e){

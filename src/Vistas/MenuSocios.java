@@ -1,13 +1,10 @@
 package Vistas;
 
 import CakeControl.Socio;
-import CakeControl.Utilidades;
 import Controladores.controladorSocio;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 /**
  *
@@ -246,7 +243,13 @@ public class MenuSocios extends javax.swing.JFrame {
         contSocio.borrarSocio();
         
         //Limpia campos
+        jtxt_celular.setText(null);
+        jtxt_correo.setText(null);
+        jtxt_direccion.setText(null);
+        jtxt_direccion.setText(null);
         jtxt_dvrun.setText(null);
+        jtxt_fecnac.setText(null);
+        jtxt_nombreSocio.setText(null);
         jtxt_numrun.setText(null);
     }//GEN-LAST:event_jbtn_DesvincularSocioActionPerformed
 
