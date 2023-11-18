@@ -1,5 +1,9 @@
 package Vistas;
 
+import CakeControl.Ingrediente;
+import Controladores.ControladorIngrediente;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Nicolás
@@ -26,10 +30,22 @@ public class MenuIngredientes extends javax.swing.JFrame {
         jbtn_crearIngrediente = new javax.swing.JButton();
         jbtn_modIngrediente = new javax.swing.JButton();
         jbtn_borrarIngrediente = new javax.swing.JButton();
-        jbtn_stockIngredientes = new javax.swing.JButton();
+        jbtn_consultarIngrediente = new javax.swing.JButton();
         jbtn_recepcionIngredientes = new javax.swing.JButton();
         jbtn_ajustePerdida = new javax.swing.JButton();
         jbtn_volver = new javax.swing.JButton();
+        jlbl_codIngrediente = new javax.swing.JLabel();
+        jlbl_nombreIngrediente = new javax.swing.JLabel();
+        jlbl_descIng = new javax.swing.JLabel();
+        jlbl_stockIng = new javax.swing.JLabel();
+        jlbl_precioIng = new javax.swing.JLabel();
+        jlbl_marcaIng = new javax.swing.JLabel();
+        jtxt_codigoIng = new javax.swing.JTextField();
+        jtxt_nombreIng = new javax.swing.JTextField();
+        jtxt_descIng = new javax.swing.JTextField();
+        jtxt_marcaIng = new javax.swing.JTextField();
+        jtxt_precioIng = new javax.swing.JTextField();
+        jtxt_stockIng = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,11 +73,11 @@ public class MenuIngredientes extends javax.swing.JFrame {
             }
         });
 
-        jbtn_stockIngredientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Stock_Consulta.png"))); // NOI18N
-        jbtn_stockIngredientes.setText("Consulta Stock ingredientes");
-        jbtn_stockIngredientes.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_consultarIngrediente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Stock_Consulta.png"))); // NOI18N
+        jbtn_consultarIngrediente.setText("Consultar ingrediente");
+        jbtn_consultarIngrediente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_stockIngredientesActionPerformed(evt);
+                jbtn_consultarIngredienteActionPerformed(evt);
             }
         });
 
@@ -89,40 +105,106 @@ public class MenuIngredientes extends javax.swing.JFrame {
             }
         });
 
+        jlbl_codIngrediente.setText("Código");
+
+        jlbl_nombreIngrediente.setText("Nombre");
+
+        jlbl_descIng.setText("Descripción");
+
+        jlbl_stockIng.setText("Stock");
+
+        jlbl_precioIng.setText("Precio");
+
+        jlbl_marcaIng.setText("Marca");
+
+        jtxt_stockIng.setEnabled(false);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addGap(57, 57, 57)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jlbl_nombreIngrediente)
+                    .addComponent(jlbl_descIng)
+                    .addComponent(jlbl_codIngrediente)
+                    .addComponent(jlbl_marcaIng)
+                    .addComponent(jlbl_precioIng)
+                    .addComponent(jlbl_stockIng))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbtn_volver)
-                    .addComponent(jbtn_ajustePerdida)
-                    .addComponent(jbtn_recepcionIngredientes)
-                    .addComponent(jbtn_stockIngredientes)
-                    .addComponent(jbtn_borrarIngrediente)
-                    .addComponent(jbtn_modIngrediente)
-                    .addComponent(jbtn_crearIngrediente))
-                .addContainerGap(718, Short.MAX_VALUE))
+                    .addComponent(jtxt_stockIng, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jtxt_codigoIng, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jtxt_nombreIng, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jtxt_descIng, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jtxt_marcaIng, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jtxt_precioIng, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(34, 34, 34)
+                        .addComponent(jbtn_consultarIngrediente))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jbtn_crearIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jbtn_ajustePerdida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jbtn_borrarIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jbtn_volver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jbtn_modIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jbtn_recepcionIngredientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(356, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jbtn_crearIngrediente)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jlbl_codIngrediente)
+                            .addComponent(jtxt_codigoIng, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jbtn_consultarIngrediente)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlbl_nombreIngrediente)
+                    .addComponent(jtxt_nombreIng, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlbl_marcaIng)
+                    .addComponent(jtxt_marcaIng, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlbl_descIng)
+                    .addComponent(jtxt_descIng, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jbtn_modIngrediente)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtxt_precioIng, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlbl_precioIng))
                 .addGap(18, 18, 18)
-                .addComponent(jbtn_borrarIngrediente)
-                .addGap(18, 18, 18)
-                .addComponent(jbtn_stockIngredientes)
-                .addGap(18, 18, 18)
-                .addComponent(jbtn_recepcionIngredientes)
-                .addGap(18, 18, 18)
-                .addComponent(jbtn_ajustePerdida)
-                .addGap(18, 18, 18)
-                .addComponent(jbtn_volver)
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlbl_stockIng)
+                    .addComponent(jtxt_stockIng, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbtn_crearIngrediente)
+                    .addComponent(jbtn_ajustePerdida))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbtn_modIngrediente)
+                    .addComponent(jbtn_recepcionIngredientes))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbtn_borrarIngrediente)
+                    .addComponent(jbtn_volver))
+                .addContainerGap(235, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -146,27 +228,111 @@ public class MenuIngredientes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtn_crearIngredienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_crearIngredienteActionPerformed
-        // TODO add your handling code here:
+        //Verifica que los campos no estén en blanco
+        
+        while(jtxt_descIng.getText().isBlank() || jtxt_marcaIng.getText().isBlank() || jtxt_nombreIng.getText().isBlank() || jtxt_precioIng.getText().isBlank()){
+            JOptionPane.showMessageDialog(null, "Error: Algún campo obligatorio está en blanco");
+            break;
+        }
+        
+        //Crea objetos de clases
+        ControladorIngrediente contIng = new ControladorIngrediente();
+        Ingrediente ingrediente = new Ingrediente();
+        
+        //Captura la información del formulario y la lleva al controlador
+        ingrediente.setNombre(this.jtxt_nombreIng.getText());
+        ingrediente.setDescripcion(this.jtxt_descIng.getText());
+        ingrediente.setValorCosto(Integer.parseInt(this.jtxt_precioIng.getText()));
+        ingrediente.setMarca(this.jtxt_marcaIng.getText());
+        
+        //Conexión bd y query
+        contIng.modificarIngrediente();
+        
+        //Limpia campos
+        jtxt_codigoIng.setText(null);
+        jtxt_descIng.setText(null);
+        jtxt_marcaIng.setText(null);
+        jtxt_nombreIng.setText(null);
+        jtxt_precioIng.setText(null);
+        jtxt_stockIng.setText(null);
     }//GEN-LAST:event_jbtn_crearIngredienteActionPerformed
 
     private void jbtn_modIngredienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_modIngredienteActionPerformed
-        // TODO add your handling code here:
+
+        //Crea objetos de clases
+        ControladorIngrediente contIng = new ControladorIngrediente();
+        Ingrediente ingrediente = new Ingrediente();
+        
+        //Captura la información del formulario y la lleva al controlador
+        ingrediente.setCodigo(Integer.parseInt(this.jtxt_codigoIng.getText()));
+        ingrediente.setNombre(this.jtxt_nombreIng.getText());
+        ingrediente.setDescripcion(this.jtxt_descIng.getText());
+        ingrediente.setStock(0);
+        ingrediente.setValorCosto(Integer.parseInt(this.jtxt_precioIng.getText()));
+        ingrediente.setMarca(this.jtxt_marcaIng.getText());
+        
+        //Conexión bd y query
+        contIng.modificarIngrediente();
+        
+        //Limpia campos
+        jtxt_codigoIng.setText(null);
+        jtxt_descIng.setText(null);
+        jtxt_marcaIng.setText(null);
+        jtxt_nombreIng.setText(null);
+        jtxt_precioIng.setText(null);
+        jtxt_stockIng.setText(null);
     }//GEN-LAST:event_jbtn_modIngredienteActionPerformed
 
     private void jbtn_borrarIngredienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_borrarIngredienteActionPerformed
-        // TODO add your handling code here:
+        //Crea objetos de clases
+        ControladorIngrediente contIng = new ControladorIngrediente();
+        Ingrediente ingrediente = new Ingrediente();
+        
+        //Captura la información del formulario y la lleva al controlador
+        ingrediente.setCodigo(Integer.parseInt(this.jtxt_codigoIng.getText()));
+        
+        //Conexión bd y query
+        contIng.borrarIngrediente();
+        
+        //Limpia campos
+        jtxt_codigoIng.setText(null);
+        jtxt_descIng.setText(null);
+        jtxt_marcaIng.setText(null);
+        jtxt_nombreIng.setText(null);
+        jtxt_precioIng.setText(null);
+        jtxt_stockIng.setText(null);
     }//GEN-LAST:event_jbtn_borrarIngredienteActionPerformed
 
-    private void jbtn_stockIngredientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_stockIngredientesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbtn_stockIngredientesActionPerformed
+    private void jbtn_consultarIngredienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_consultarIngredienteActionPerformed
+        //Crea objetos de clases
+        ControladorIngrediente contIng = new ControladorIngrediente();
+        Ingrediente ing = new Ingrediente();
+
+        //Captura la información del formulario y la lleva al controlador
+        ing.setCodigo(Integer.parseInt(this.jtxt_codigoIng.getText()));
+        
+        
+        //Conexión bd y query
+        contIng.buscarIngrediente();
+        
+        //Llena campos
+        jtxt_descIng.setText(ing.getDescripcion());
+        jtxt_marcaIng.setText(ing.getMarca());
+        jtxt_nombreIng.setText(ing.getNombre());
+        jtxt_precioIng.setText(Integer.toString(ing.getValorCosto()));
+        jtxt_stockIng.setText(Integer.toString(ing.getStock()));
+    }//GEN-LAST:event_jbtn_consultarIngredienteActionPerformed
 
     private void jbtn_recepcionIngredientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_recepcionIngredientesActionPerformed
-        // TODO add your handling code here:
+        this.hide();
+        MenuRecepcionIng menuRecIng = new MenuRecepcionIng();
+        menuRecIng.show();
     }//GEN-LAST:event_jbtn_recepcionIngredientesActionPerformed
 
     private void jbtn_ajustePerdidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_ajustePerdidaActionPerformed
-        // TODO add your handling code here:
+        this.hide();
+        MenuPerdidaIng menuPerIng = new MenuPerdidaIng();
+        menuPerIng.show();
     }//GEN-LAST:event_jbtn_ajustePerdidaActionPerformed
 
     private void jbtn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_volverActionPerformed
@@ -214,10 +380,22 @@ public class MenuIngredientes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbtn_ajustePerdida;
     private javax.swing.JButton jbtn_borrarIngrediente;
+    private javax.swing.JButton jbtn_consultarIngrediente;
     private javax.swing.JButton jbtn_crearIngrediente;
     private javax.swing.JButton jbtn_modIngrediente;
     private javax.swing.JButton jbtn_recepcionIngredientes;
-    private javax.swing.JButton jbtn_stockIngredientes;
     private javax.swing.JButton jbtn_volver;
+    private javax.swing.JLabel jlbl_codIngrediente;
+    private javax.swing.JLabel jlbl_descIng;
+    private javax.swing.JLabel jlbl_marcaIng;
+    private javax.swing.JLabel jlbl_nombreIngrediente;
+    private javax.swing.JLabel jlbl_precioIng;
+    private javax.swing.JLabel jlbl_stockIng;
+    private javax.swing.JTextField jtxt_codigoIng;
+    private javax.swing.JTextField jtxt_descIng;
+    private javax.swing.JTextField jtxt_marcaIng;
+    private javax.swing.JTextField jtxt_nombreIng;
+    private javax.swing.JTextField jtxt_precioIng;
+    private javax.swing.JTextField jtxt_stockIng;
     // End of variables declaration//GEN-END:variables
 }

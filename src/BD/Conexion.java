@@ -7,26 +7,13 @@ import java.sql.DriverManager;
  */
 public class Conexion {
     Connection conexion = null;
-    
-    public static void main(String[] args) {
-        Connection conexion = null;
-        try{
-            
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/cakecontrol","root", "");
-            System.out.println("Conexión exitosa");
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
-    
-    public void realizarConexion(){
-        Connection conexion = null;
+    public Connection realizarConexion(){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/cakecontrol","root", "");
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
+        return conexion;
     }
 }
