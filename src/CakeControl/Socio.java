@@ -1,5 +1,6 @@
 package CakeControl;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -7,27 +8,26 @@ import java.util.Date;
  * @author Nicolás
  */
 public class Socio {
-    private int numrun;
-    private char dvrun;
-    private String nombre;
-    private String direccion;
-    private String celular;
-    private String correo;
-    private Date fecNac;
-    private int cantCompra; //Cantidad de compras realizadas por el cliente
-
+    private static int numrun;
+    private static char dvrun;
+    private static String nombre;
+    private static String direccion;
+    private static String celular;
+    private static String correo;
+    private static LocalDate fecNac;
+    private static int cantCompra; //Cantidad de compras realizadas por el cliente
+    
     public Socio() {
     }
 
     public Socio(int numrun, char dvrun, String nombre, String direccion, String celular, String correo, Date fecNac, int cantCompra) {
-        this.numrun = numrun;
-        this.dvrun = dvrun;
-        this.nombre = nombre;
-        this.direccion = direccion;
-        this.celular = celular;
-        this.correo = correo;
-        this.fecNac = fecNac;
-        this.cantCompra = cantCompra;
+        Socio.numrun = numrun;
+        Socio.dvrun = dvrun;
+        Socio.nombre = nombre;
+        Socio.direccion = direccion;
+        Socio.celular = celular;
+        Socio.correo = correo;
+        Socio.cantCompra = cantCompra;
     }
 
     public int getNumrun() {
@@ -35,7 +35,7 @@ public class Socio {
     }
 
     public void setNumrun(int numrun) {
-        this.numrun = numrun;
+        Socio.numrun = numrun;
     }
 
     public char getDvrun() {
@@ -43,7 +43,7 @@ public class Socio {
     }
 
     public void setDvrun(char dvrun) {
-        this.dvrun = dvrun;
+        Socio.dvrun = dvrun;
     }
 
     public String getNombre() {
@@ -51,7 +51,7 @@ public class Socio {
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        Socio.nombre = nombre;
     }
 
     public String getDireccion() {
@@ -59,7 +59,7 @@ public class Socio {
     }
 
     public void setDireccion(String direccion) {
-        this.direccion = direccion;
+        Socio.direccion = direccion;
     }
 
     public String getCelular() {
@@ -67,7 +67,7 @@ public class Socio {
     }
 
     public void setCelular(String celular) {
-        this.celular = celular;
+        Socio.celular = celular;
     }
 
     public String getCorreo() {
@@ -75,15 +75,15 @@ public class Socio {
     }
 
     public void setCorreo(String correo) {
-        this.correo = correo;
+        Socio.correo = correo;
     }
 
-    public Date getFecNac() {
+    public LocalDate getFecNac() {
         return fecNac;
     }
 
-    public void setFecNac(Date fecNac) {
-        this.fecNac = fecNac;
+    public void setFecNac(LocalDate fecNac) {
+        Socio.fecNac = fecNac;
     }
 
     public int getCantCompra() {
@@ -91,7 +91,7 @@ public class Socio {
     }
 
     public void setCantCompra(int cantCompra) {
-        this.cantCompra = cantCompra;
+        Socio.cantCompra = cantCompra;
     }
     
 }
