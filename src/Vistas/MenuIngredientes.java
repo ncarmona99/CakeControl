@@ -117,6 +117,12 @@ public class MenuIngredientes extends javax.swing.JFrame {
 
         jlbl_marcaIng.setText("Marca");
 
+        jtxt_codigoIng.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_codigoIngActionPerformed(evt);
+            }
+        });
+
         jtxt_stockIng.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -246,7 +252,7 @@ public class MenuIngredientes extends javax.swing.JFrame {
         ingrediente.setMarca(this.jtxt_marcaIng.getText());
         
         //Conexión bd y query
-        contIng.modificarIngrediente();
+        contIng.crearIngrediente();
         
         //Limpia campos
         jtxt_codigoIng.setText(null);
@@ -340,6 +346,10 @@ public class MenuIngredientes extends javax.swing.JFrame {
         MenuInicial inicial = new MenuInicial();
         inicial.show();
     }//GEN-LAST:event_jbtn_volverActionPerformed
+
+    private void jtxt_codigoIngActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_codigoIngActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_codigoIngActionPerformed
 
     /**
      * @param args the command line arguments

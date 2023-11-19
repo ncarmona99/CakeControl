@@ -93,36 +93,47 @@ public class MenuPreparaciones extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbtn_volver)
+                .addGap(18, 18, 18)
+                .addComponent(jbtn_ajustePerdida)
+                .addGap(220, 220, 220))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addGap(110, 110, 110)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbtn_volver)
-                    .addComponent(jbtn_ajustePerdida)
-                    .addComponent(jbtn_agregarPreparacion)
-                    .addComponent(jbtn_stockPreparaciones)
-                    .addComponent(jbtn_borrarIngrediente)
-                    .addComponent(jbtn_modReceta)
-                    .addComponent(jbtn_crearReceta))
-                .addContainerGap(707, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jbtn_modReceta)
+                        .addGap(269, 269, 269)
+                        .addComponent(jbtn_borrarIngrediente))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jbtn_stockPreparaciones)
+                        .addGap(267, 267, 267)
+                        .addComponent(jbtn_crearReceta)))
+                .addGap(0, 271, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addComponent(jbtn_agregarPreparacion)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jbtn_crearReceta)
-                .addGap(18, 18, 18)
-                .addComponent(jbtn_modReceta)
-                .addGap(18, 18, 18)
-                .addComponent(jbtn_borrarIngrediente)
-                .addGap(18, 18, 18)
-                .addComponent(jbtn_stockPreparaciones)
-                .addGap(18, 18, 18)
+                .addGap(48, 48, 48)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbtn_crearReceta)
+                    .addComponent(jbtn_stockPreparaciones))
+                .addGap(88, 88, 88)
                 .addComponent(jbtn_agregarPreparacion)
-                .addGap(18, 18, 18)
-                .addComponent(jbtn_ajustePerdida)
-                .addGap(18, 18, 18)
-                .addComponent(jbtn_volver)
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addGap(101, 101, 101)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbtn_modReceta)
+                    .addComponent(jbtn_borrarIngrediente))
+                .addGap(38, 38, 38)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbtn_volver)
+                    .addComponent(jbtn_ajustePerdida))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -136,17 +147,16 @@ public class MenuPreparaciones extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtn_crearRecetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_crearRecetaActionPerformed
-        // TODO add your handling code here:
+        this.hide();
+        MenuCrearReceta menuCrearReceta = new MenuCrearReceta();
+        menuCrearReceta.show();
     }//GEN-LAST:event_jbtn_crearRecetaActionPerformed
 
     private void jbtn_modRecetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_modRecetaActionPerformed

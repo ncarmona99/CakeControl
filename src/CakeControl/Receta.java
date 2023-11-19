@@ -5,19 +5,18 @@ package CakeControl;
  * @author Nicolas
  */
 public class Receta {
-    private int codReceta;
-    private String nombreReceta;
-    private int valorReceta; //Coste de venta de la receta
-    private Ingrediente ingrediente;
+    private static int codReceta;
+    private static String nombreReceta;
+    private static int valorReceta;
     
+
     public Receta() {
     }
 
-    public Receta(int codReceta, String nombreReceta, int valorReceta, Ingrediente ingrediente) {
+    public Receta(int codReceta, String nombreReceta, int valorReceta) {
         this.codReceta = codReceta;
         this.nombreReceta = nombreReceta;
         this.valorReceta = valorReceta;
-        this.ingrediente = ingrediente;
     }
 
     public int getCodReceta() {
@@ -36,21 +35,17 @@ public class Receta {
         this.nombreReceta = nombreReceta;
     }
 
-    public int getValorReceta() {
+    public int getvalorReceta() {
         return valorReceta;
     }
 
-    public void setValorReceta(int valorReceta) {
+    public void setvalorReceta(int valorReceta) {
         this.valorReceta = valorReceta;
     }
 
-    public Ingrediente getIngrediente() {
-        return ingrediente;
-    }
-
-    public void setIngrediente(Ingrediente ingrediente) {
-        this.ingrediente = ingrediente;
-    }
+   
+    
+    
     
     
 }
