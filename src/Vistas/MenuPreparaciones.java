@@ -160,7 +160,9 @@ public class MenuPreparaciones extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtn_crearRecetaActionPerformed
 
     private void jbtn_modRecetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_modRecetaActionPerformed
-        // TODO add your handling code here:
+        this.hide();
+        MenuAgregarIng menuAgregarIng = new MenuAgregarIng();
+        menuAgregarIng.show();
     }//GEN-LAST:event_jbtn_modRecetaActionPerformed
 
     private void jbtn_borrarIngredienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_borrarIngredienteActionPerformed

@@ -8,16 +8,26 @@ public class Receta {
     private static int codReceta;
     private static String nombreReceta;
     private static int valorReceta;
-    
+    private static int cantIng;
 
     public Receta() {
     }
 
-    public Receta(int codReceta, String nombreReceta, int valorReceta) {
+    public Receta(int codReceta, String nombreReceta, int valorReceta, int cantIng) {
         this.codReceta = codReceta;
         this.nombreReceta = nombreReceta;
         this.valorReceta = valorReceta;
+        this.cantIng = cantIng;
     }
+
+    public int getCantIng() {
+        return cantIng;
+    }
+
+    public void setCantIng(int cantIng) {
+        this.cantIng = cantIng;
+    }
+    
 
     public int getCodReceta() {
         return codReceta;

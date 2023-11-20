@@ -4,8 +4,14 @@
  */
 package Vistas;
 
+import CakeControl.Ingrediente;
 import CakeControl.Receta;
+import Controladores.ControladorRecIng;
 import Controladores.ControladorReceta;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -13,11 +19,15 @@ import Controladores.ControladorReceta;
  */
 public class MenuAgregarIng extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MenuAgregarIng
-     */
+    DefaultTableModel mt = new DefaultTableModel();
+    
+    
     public MenuAgregarIng() {
         initComponents();
+        String ids [] = {"Codigo","Nombre","Cantidad"};
+        mt.setColumnIdentifiers(ids);
+        jtbl_ing.setModel(mt);
+        
     }
 
     /**
@@ -32,8 +42,6 @@ public class MenuAgregarIng extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jtxt_codRecIng = new javax.swing.JTextPane();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtxt_nombreRec = new javax.swing.JTextPane();
@@ -41,18 +49,20 @@ public class MenuAgregarIng extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jtxt_valorRec = new javax.swing.JTextPane();
         jbtn_buscarRec = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtxt_codRecIng = new javax.swing.JTextPane();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jtbl_ingReceta = new javax.swing.JTable();
+        jtbl_ing = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jtxt_ingrediente = new javax.swing.JTextPane();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jtxt_cantIng = new javax.swing.JTextPane();
         jbtn_agregarIng = new javax.swing.JButton();
         jbtn_modificarIng = new javax.swing.JButton();
         jbtn_eliminarIng = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jtxt_cantIng = new javax.swing.JTextPane();
         jbtn_volver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,14 +71,14 @@ public class MenuAgregarIng extends javax.swing.JFrame {
 
         jLabel1.setText("Codigo Receta");
 
-        jScrollPane1.setViewportView(jtxt_codRecIng);
-
         jLabel2.setText("Nombre Receta");
 
+        jtxt_nombreRec.setEditable(false);
         jScrollPane2.setViewportView(jtxt_nombreRec);
 
         jLabel3.setText("Valor Receta");
 
+        jtxt_valorRec.setEditable(false);
         jScrollPane3.setViewportView(jtxt_valorRec);
 
         jbtn_buscarRec.setText("Buscar Receta");
@@ -77,6 +87,8 @@ public class MenuAgregarIng extends javax.swing.JFrame {
                 jbtn_buscarRecActionPerformed(evt);
             }
         });
+
+        jScrollPane1.setViewportView(jtxt_codRecIng);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -94,7 +106,7 @@ public class MenuAgregarIng extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -110,11 +122,11 @@ public class MenuAgregarIng extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbtn_buscarRec)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -125,23 +137,15 @@ public class MenuAgregarIng extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
-        jtbl_ingReceta.setModel(new javax.swing.table.DefaultTableModel(
+        jtbl_ing.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Codigo", "Ingrediente", "Cantidad"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
             }
-        });
-        jScrollPane6.setViewportView(jtbl_ingReceta);
+        ));
+        jScrollPane6.setViewportView(jtbl_ing);
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(204, 204, 204)));
 
@@ -151,13 +155,23 @@ public class MenuAgregarIng extends javax.swing.JFrame {
 
         jLabel5.setText("Cantidad");
 
-        jScrollPane5.setViewportView(jtxt_cantIng);
-
         jbtn_agregarIng.setText("Agregar Ingrediente");
+        jbtn_agregarIng.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_agregarIngActionPerformed(evt);
+            }
+        });
 
         jbtn_modificarIng.setText("Modificar Ingrediente");
 
         jbtn_eliminarIng.setText("Eliminar Ingrediente");
+        jbtn_eliminarIng.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtn_eliminarIngActionPerformed(evt);
+            }
+        });
+
+        jScrollPane5.setViewportView(jtxt_cantIng);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -168,20 +182,18 @@ public class MenuAgregarIng extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jbtn_agregarIng, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jbtn_modificarIng, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jbtn_eliminarIng, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jbtn_agregarIng, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbtn_modificarIng, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(jbtn_eliminarIng, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -193,7 +205,7 @@ public class MenuAgregarIng extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbtn_agregarIng)
@@ -201,7 +213,7 @@ public class MenuAgregarIng extends javax.swing.JFrame {
                 .addComponent(jbtn_modificarIng)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbtn_eliminarIng)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         jbtn_volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Volver.png"))); // NOI18N
@@ -237,12 +249,12 @@ public class MenuAgregarIng extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(74, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jbtn_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(56, 56, 56))))
@@ -252,11 +264,14 @@ public class MenuAgregarIng extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -265,13 +280,22 @@ public class MenuAgregarIng extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtn_buscarRecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_buscarRecActionPerformed
+        
         //Crea objetos de clases
         ControladorReceta contRec = new ControladorReceta();
         Receta receta = new Receta();
-        
+        DefaultTableModel modelo = (DefaultTableModel) this.jtbl_ing.getModel();
+        modelo.setRowCount(0);
+        ControladorRecIng contRecIng = new ControladorRecIng();
+        Ingrediente ingrediente = new Ingrediente();
         
         //Captura la información del formulario y la lleva al controlador
         receta.setCodReceta(Integer.parseInt(this.jtxt_codRecIng.getText()));
+        try {
+            contRecIng.buscarPorCod(modelo);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuAgregarIng.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         //Conexión bd y query
         contRec.buscarReceta();
@@ -280,6 +304,9 @@ public class MenuAgregarIng extends javax.swing.JFrame {
         jtxt_nombreRec.setText(receta.getNombreReceta());
         jtxt_valorRec.setText(Integer.toString(receta.getvalorReceta()));
         
+        //Listando ingredientes de la receta por codigo
+        
+        
     }//GEN-LAST:event_jbtn_buscarRecActionPerformed
 
     private void jbtn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_volverActionPerformed
@@ -287,6 +314,42 @@ public class MenuAgregarIng extends javax.swing.JFrame {
         MenuPreparaciones menuPreparacion = new MenuPreparaciones();
         menuPreparacion.show();
     }//GEN-LAST:event_jbtn_volverActionPerformed
+
+    private void jbtn_agregarIngActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_agregarIngActionPerformed
+        
+        //Crea objetos de clases
+        ControladorRecIng contRecIng = new ControladorRecIng();
+        Receta receta = new Receta();
+        Ingrediente ingrediente = new Ingrediente();
+        
+        //Captura la información del formulario y la lleva al controlador
+        receta.setCodReceta(Integer.parseInt(this.jtxt_codRecIng.getText()));
+        ingrediente.setCodigo(Integer.parseInt(this.jtxt_ingrediente.getText()));
+        contRecIng.nombreIng();
+        receta.setCantIng(Integer.parseInt(this.jtxt_cantIng.getText()));
+        
+        //Conexión bd y query
+        contRecIng.IngresarIng();
+        
+        mt.addRow(new Object [] {ingrediente.getCodigo(),ingrediente.getNombre(),receta.getCantIng()});
+        
+    }//GEN-LAST:event_jbtn_agregarIngActionPerformed
+
+    private void jbtn_eliminarIngActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_eliminarIngActionPerformed
+        // TODO add your handling code here:
+        ControladorRecIng contRecIng = new ControladorRecIng();
+        Receta receta = new Receta();
+        Ingrediente ingrediente = new Ingrediente();
+        
+        //Captura la información del formulario y la lleva al controlador
+        receta.setCodReceta(Integer.parseInt(this.jtxt_codRecIng.getText()));
+        ingrediente.setCodigo(Integer.parseInt(this.jtxt_ingrediente.getText()));
+        
+        //Conexión bd y query
+        contRecIng.EliminarIng();
+        
+        
+    }//GEN-LAST:event_jbtn_eliminarIngActionPerformed
 
     /**
      * @param args the command line arguments
@@ -343,7 +406,7 @@ public class MenuAgregarIng extends javax.swing.JFrame {
     private javax.swing.JButton jbtn_eliminarIng;
     private javax.swing.JButton jbtn_modificarIng;
     private javax.swing.JButton jbtn_volver;
-    private javax.swing.JTable jtbl_ingReceta;
+    private javax.swing.JTable jtbl_ing;
     private javax.swing.JTextPane jtxt_cantIng;
     private javax.swing.JTextPane jtxt_codRecIng;
     private javax.swing.JTextPane jtxt_ingrediente;
@@ -351,3 +414,4 @@ public class MenuAgregarIng extends javax.swing.JFrame {
     private javax.swing.JTextPane jtxt_valorRec;
     // End of variables declaration//GEN-END:variables
 }
+
