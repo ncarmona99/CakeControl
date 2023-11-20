@@ -7,19 +7,19 @@ import java.time.LocalDate;
  * @author Nicolás
  */
 public class Venta {
-    private long codVenta;
-    private LocalDate fecVenta;
-    private long totalVenta;
-    private Socio socio;
+    private static long codVenta;
+    private static LocalDate fecVenta;
+    private static long totalVenta;
+    private static Socio socio;
 
     public Venta() {
     }
 
     public Venta(long codVenta, LocalDate fecVenta, long totalVenta, Socio socio) {
-        this.codVenta = codVenta;
-        this.fecVenta = fecVenta;
-        this.totalVenta = totalVenta;
-        this.socio = socio;
+        Venta.codVenta = codVenta;
+        Venta.fecVenta = fecVenta;
+        Venta.totalVenta = totalVenta;
+        Venta.socio = socio;
     }
 
     public long getCodVenta() {
@@ -27,7 +27,7 @@ public class Venta {
     }
 
     public void setCodVenta(long codVenta) {
-        this.codVenta = codVenta;
+        Venta.codVenta = codVenta;
     }
 
     public LocalDate getFecVenta() {
@@ -35,7 +35,7 @@ public class Venta {
     }
 
     public void setFecVenta(LocalDate fecVenta) {
-        this.fecVenta = fecVenta;
+        Venta.fecVenta = fecVenta;
     }
 
     public long getTotalVenta() {
@@ -43,7 +43,7 @@ public class Venta {
     }
 
     public void setTotalVenta(long totalVenta) {
-        this.totalVenta = totalVenta;
+        Venta.totalVenta = totalVenta;
     }
 
     public Socio getSocio() {
@@ -51,7 +51,7 @@ public class Venta {
     }
 
     public void setSocio(Socio socio) {
-        this.socio = socio;
+        Venta.socio = socio;
     }
 
     @Override
