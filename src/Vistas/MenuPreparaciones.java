@@ -25,10 +25,8 @@ public class MenuPreparaciones extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jbtn_crearReceta = new javax.swing.JButton();
         jbtn_modReceta = new javax.swing.JButton();
-        jbtn_borrarIngrediente = new javax.swing.JButton();
         jbtn_stockPreparaciones = new javax.swing.JButton();
         jbtn_agregarPreparacion = new javax.swing.JButton();
-        jbtn_ajustePerdida = new javax.swing.JButton();
         jbtn_volver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -49,14 +47,6 @@ public class MenuPreparaciones extends javax.swing.JFrame {
             }
         });
 
-        jbtn_borrarIngrediente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Borrar.png"))); // NOI18N
-        jbtn_borrarIngrediente.setText("Borrar Receta");
-        jbtn_borrarIngrediente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_borrarIngredienteActionPerformed(evt);
-            }
-        });
-
         jbtn_stockPreparaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Stock_Consulta.png"))); // NOI18N
         jbtn_stockPreparaciones.setText("Consulta Stock Preparaciones");
         jbtn_stockPreparaciones.addActionListener(new java.awt.event.ActionListener() {
@@ -73,14 +63,6 @@ public class MenuPreparaciones extends javax.swing.JFrame {
             }
         });
 
-        jbtn_ajustePerdida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Perdida.png"))); // NOI18N
-        jbtn_ajustePerdida.setText("Ajuste de pérdida");
-        jbtn_ajustePerdida.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_ajustePerdidaActionPerformed(evt);
-            }
-        });
-
         jbtn_volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Volver.png"))); // NOI18N
         jbtn_volver.setText("Volver");
         jbtn_volver.addActionListener(new java.awt.event.ActionListener() {
@@ -93,47 +75,34 @@ public class MenuPreparaciones extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbtn_volver)
-                .addGap(18, 18, 18)
-                .addComponent(jbtn_ajustePerdida)
-                .addGap(220, 220, 220))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(110, 110, 110)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jbtn_modReceta)
-                        .addGap(269, 269, 269)
-                        .addComponent(jbtn_borrarIngrediente))
+                        .addGap(105, 105, 105)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jbtn_modReceta)
+                            .addComponent(jbtn_stockPreparaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbtn_agregarPreparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbtn_crearReceta, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jbtn_stockPreparaciones)
-                        .addGap(267, 267, 267)
-                        .addComponent(jbtn_crearReceta)))
-                .addGap(0, 271, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addComponent(jbtn_agregarPreparacion)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(295, 295, 295)
+                        .addComponent(jbtn_volver)))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbtn_crearReceta)
-                    .addComponent(jbtn_stockPreparaciones))
-                .addGap(88, 88, 88)
+                .addGap(53, 53, 53)
                 .addComponent(jbtn_agregarPreparacion)
-                .addGap(101, 101, 101)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbtn_modReceta)
-                    .addComponent(jbtn_borrarIngrediente))
-                .addGap(38, 38, 38)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbtn_volver)
-                    .addComponent(jbtn_ajustePerdida))
-                .addContainerGap(171, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jbtn_stockPreparaciones)
+                .addGap(18, 18, 18)
+                .addComponent(jbtn_crearReceta)
+                .addGap(18, 18, 18)
+                .addComponent(jbtn_modReceta)
+                .addGap(40, 40, 40)
+                .addComponent(jbtn_volver)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -165,10 +134,6 @@ public class MenuPreparaciones extends javax.swing.JFrame {
         menuAgregarIng.show();
     }//GEN-LAST:event_jbtn_modRecetaActionPerformed
 
-    private void jbtn_borrarIngredienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_borrarIngredienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbtn_borrarIngredienteActionPerformed
-
     private void jbtn_stockPreparacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_stockPreparacionesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jbtn_stockPreparacionesActionPerformed
@@ -176,10 +141,6 @@ public class MenuPreparaciones extends javax.swing.JFrame {
     private void jbtn_agregarPreparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_agregarPreparacionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jbtn_agregarPreparacionActionPerformed
-
-    private void jbtn_ajustePerdidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_ajustePerdidaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbtn_ajustePerdidaActionPerformed
 
     private void jbtn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_volverActionPerformed
         this.hide();
@@ -190,44 +151,18 @@ public class MenuPreparaciones extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuPreparaciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuPreparaciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuPreparaciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuPreparaciones.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+/*    public static void main(String args[]) {
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MenuPreparaciones().setVisible(true);
             }
         });
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbtn_agregarPreparacion;
-    private javax.swing.JButton jbtn_ajustePerdida;
-    private javax.swing.JButton jbtn_borrarIngrediente;
     private javax.swing.JButton jbtn_crearReceta;
     private javax.swing.JButton jbtn_modReceta;
     private javax.swing.JButton jbtn_stockPreparaciones;
