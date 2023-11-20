@@ -1,54 +1,33 @@
 package Vistas;
 
-import BD.Conexion;
+import CakeControl.Receta;
+import CakeControl.Socio;
+import CakeControl.Venta;
+import Controladores.controladorVenta;
 import javax.swing.table.DefaultTableModel;
-import java.sql.*;
+import javax.swing.JOptionPane;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
  * @author Nicolás
  */
 public class MenuVenta extends javax.swing.JFrame {
-
+    Receta rec = new Receta();
+    Socio soc = new Socio();
+    Venta vt = new Venta();
+    controladorVenta ctrlV= new controladorVenta();
+    DefaultTableModel mt = new DefaultTableModel();
+    int acum = 0;
+    
     public MenuVenta() {
         initComponents();
         
-        /* try{
-            DefaultTableModel modelo = new DefaultTableModel();
-            jtbl_listaVenta.setModel(modelo);
-            
-            PreparedStatement ps = null;
-            ResultSet rs = null;
-            Conexion conn = new Conexion();
-            Connection con = conn.realizarConexion();
-            String sql = "SELECT nombre_receta, precio FROM receta";
-            ps = con.prepareStatement(sql);
-            rs = ps.executeQuery();
-            
-            ResultSetMetaData rsMD = rs.getMetaData();
-            int cantidadColumnas = rsMD.getColumnCount();
-            
-            modelo.addColumn("Producto");
-            modelo.addColumn("Precio");
-            modelo.addColumn("Cantidad");
-            
-            while(rs.next()){
-                
-                Object[] filas = new Object[cantidadColumnas];
-                
-                for (int i=0; i<cantidadColumnas; i++) {
-                    filas[i] = rs.getObject(i + 1);
-                }
-                
-                modelo.addRow(filas);
-                
-            }
-            
-        }catch(SQLException ex){
-            System.err.println(ex.toString());
-            
-        } 
-            */
+        String ids [] = {"Producto","Precio","Cantidad"};
+        mt.setColumnIdentifiers(ids);
+        jtbl_listaVenta.setModel(mt);
+        
     }
     
     
@@ -66,13 +45,12 @@ public class MenuVenta extends javax.swing.JFrame {
         jtxt_cantidadProducto = new javax.swing.JTextField();
         jbtn_totalCompra = new javax.swing.JButton();
         jbtn_volver = new javax.swing.JButton();
-        jbtn_ingresarSocio = new javax.swing.JButton();
         jlbl_codProducto = new javax.swing.JLabel();
         jlbl_cantProducto = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbl_listaVenta = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jtxp_Total = new javax.swing.JTextPane();
+        jtxt_total = new javax.swing.JTextPane();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -126,49 +104,13 @@ public class MenuVenta extends javax.swing.JFrame {
             }
         });
 
-        jbtn_ingresarSocio.setText("Ingresar Socio");
-        jbtn_ingresarSocio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_ingresarSocioActionPerformed(evt);
-            }
-        });
-
         jlbl_codProducto.setText("Código Producto");
 
         jlbl_cantProducto.setText("Cantidad Producto");
 
         jtbl_listaVenta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Producto", "Precio", "Cantidad"
@@ -184,9 +126,9 @@ public class MenuVenta extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jtbl_listaVenta);
 
-        jtxp_Total.setEditable(false);
-        jtxp_Total.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane2.setViewportView(jtxp_Total);
+        jtxt_total.setEditable(false);
+        jtxt_total.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane2.setViewportView(jtxt_total);
 
         jLabel1.setText("Total de la compra");
 
@@ -199,34 +141,29 @@ public class MenuVenta extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jbtn_agregarProducto)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jlbl_rutCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jlbl_codProducto)
-                                    .addComponent(jlbl_cantProducto))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(38, 38, 38)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jtxt_codigoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jtxt_run, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(9, 9, 9)
-                                                .addComponent(jlbl_guion)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jtxt_dv, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGap(40, 40, 40)
-                                        .addComponent(jtxt_cantidadProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(jbtn_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jbtn_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(158, 158, 158))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jlbl_rutCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jlbl_codProducto)
+                            .addComponent(jlbl_cantProducto))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(38, 38, 38)
-                                .addComponent(jbtn_totalCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jtxt_codigoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jtxt_run, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(9, 9, 9)
+                                        .addComponent(jlbl_guion)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jtxt_dv, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jbtn_ingresarSocio, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(40, 40, 40)
+                                .addComponent(jtxt_cantidadProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(38, 38, 38)
+                        .addComponent(jbtn_totalCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -234,7 +171,7 @@ public class MenuVenta extends javax.swing.JFrame {
                         .addGap(61, 61, 61)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,15 +180,17 @@ public class MenuVenta extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jlbl_rutCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jtxt_run, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jlbl_guion)
-                                .addComponent(jtxt_dv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jbtn_ingresarSocio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jlbl_rutCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtxt_run, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jlbl_guion)
+                                    .addComponent(jtxt_dv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jbtn_agregarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jtxt_codigoProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jlbl_codProducto))
@@ -259,11 +198,11 @@ public class MenuVenta extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jtxt_cantidadProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jlbl_cantProducto)))
-                            .addComponent(jbtn_agregarProducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(jbtn_totalCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jbtn_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbtn_totalCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jbtn_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -287,7 +226,31 @@ public class MenuVenta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtn_agregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_agregarProductoActionPerformed
-        // TODO add your handling code here:
+
+        // Rescate de información de los campos
+        if (jtxt_cantidadProducto.getText().isBlank() || jtxt_codigoProducto.getText().isBlank()){
+            JOptionPane.showMessageDialog(null, "Uno o más campos obligatorios están vacíos");
+        }else{
+            rec.setCodReceta(Integer.parseInt(this.jtxt_codigoProducto.getText()));
+            rec.setCantReceta(Integer.parseInt(this.jtxt_cantidadProducto.getText()));
+        
+            if (rec.getCantReceta() <= 0){
+                JOptionPane.showMessageDialog(null, "La cantidad de producto no puede ser menor a 1");
+            }else{
+                // Llamar información de la base de datos
+                ctrlV.buscarPreparacion();
+                mt.addRow(new Object[]{rec.getNombreReceta(),rec.getValorReceta(),rec.getCantReceta()});
+                rec.getColCompra().add((rec.getValorReceta()*rec.getCantReceta()));
+                
+                for (Integer suma : rec.getColCompra()) {
+                    acum = suma + acum;
+            }
+                jtxt_total.setText(Integer.toString(acum));
+                acum = 0;
+                jtxt_codigoProducto.setText(null);
+                jtxt_cantidadProducto.setText(null);
+            }
+        }
     }//GEN-LAST:event_jbtn_agregarProductoActionPerformed
 
     private void jtxt_dvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_dvActionPerformed
@@ -307,18 +270,41 @@ public class MenuVenta extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxt_cantidadProductoActionPerformed
 
     private void jbtn_totalCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_totalCompraActionPerformed
-        // TODO add your handling code here:
+        if(jtxt_total.getText().equals("0") || jtxt_total.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "No ha ingresado ningún producto");
+        }else{
+            soc.setNumrun(Integer.parseInt(jtxt_run.getText()));
+            soc.setDvrun(jtxt_dv.getText().charAt(0));
+            
+            // Toma información para llevarla a tabla venta
+            vt.setTotalVenta(Integer.parseInt(jtxt_total.getText()));
+            DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            String fecha = LocalDate.now().format(formato);
+            LocalDate fechaFormato = LocalDate.parse(fecha,formato);
+            vt.setFecVenta(fechaFormato);
+            
+            // Hace los cambios en BD
+            ctrlV.buscarSocio();
+            ctrlV.actualizarCantCompra();
+            ctrlV.ingresarVenta();
+            
+            JOptionPane.showMessageDialog(null, "Venta efectuada con éxito");
+            
+            // Limpia todos los campos y la colección
+            rec.getColCompra().clear();
+            jtxt_total.setText(null);
+            jtxt_dv.setText(null);
+            jtxt_run.setText(null);
+            mt.setRowCount(0);
+        }
     }//GEN-LAST:event_jbtn_totalCompraActionPerformed
 
     private void jbtn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_volverActionPerformed
+        rec.getColCompra().clear();
         this.hide();
         MenuInicial inicial = new MenuInicial();
         inicial.show();
     }//GEN-LAST:event_jbtn_volverActionPerformed
-
-    private void jbtn_ingresarSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_ingresarSocioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbtn_ingresarSocioActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -358,7 +344,6 @@ public class MenuVenta extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton jbtn_agregarProducto;
-    private javax.swing.JButton jbtn_ingresarSocio;
     private javax.swing.JButton jbtn_totalCompra;
     private javax.swing.JButton jbtn_volver;
     private javax.swing.JLabel jlbl_cantProducto;
@@ -366,10 +351,10 @@ public class MenuVenta extends javax.swing.JFrame {
     private javax.swing.JLabel jlbl_guion;
     private javax.swing.JLabel jlbl_rutCliente;
     private javax.swing.JTable jtbl_listaVenta;
-    private javax.swing.JTextPane jtxp_Total;
     private javax.swing.JTextField jtxt_cantidadProducto;
     private javax.swing.JTextField jtxt_codigoProducto;
     private javax.swing.JTextField jtxt_dv;
     private javax.swing.JTextField jtxt_run;
+    private javax.swing.JTextPane jtxt_total;
     // End of variables declaration//GEN-END:variables
 }
