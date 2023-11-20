@@ -47,42 +47,33 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="290" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="jbtn_salir" pref="343" max="32767" attributes="0"/>
+                      <Component id="jbtn_socios" alignment="1" max="32767" attributes="0"/>
                       <Component id="jbtn_venta" alignment="1" max="32767" attributes="0"/>
                       <Component id="jbtn_ingredientes" alignment="1" max="32767" attributes="0"/>
-                      <Component id="jbtn_preparaciones" alignment="0" pref="179" max="32767" attributes="0"/>
+                      <Component id="jbtn_preparaciones" alignment="1" pref="343" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="jbtn_socios" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jbtn_registroVenta" alignment="0" pref="164" max="32767" attributes="0"/>
-                      <Component id="jbtn_salir" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="427" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="364" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jbtn_venta" pref="103" max="32767" attributes="0"/>
-                      <Component id="jbtn_registroVenta" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jbtn_ingredientes" pref="93" max="32767" attributes="0"/>
-                      <Component id="jbtn_socios" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jbtn_salir" alignment="3" min="-2" pref="104" max="-2" attributes="0"/>
-                      <Component id="jbtn_preparaciones" alignment="3" min="-2" pref="104" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="89" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <Component id="jbtn_venta" min="-2" pref="41" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jbtn_socios" min="-2" pref="41" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jbtn_ingredientes" min="-2" pref="41" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jbtn_preparaciones" min="-2" pref="41" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jbtn_salir" min="-2" pref="41" max="-2" attributes="0"/>
+                  <EmptySpace pref="247" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -94,14 +85,6 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtn_ventaActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="jbtn_registroVenta">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Registro de venta"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtn_registroVentaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jbtn_ingredientes">

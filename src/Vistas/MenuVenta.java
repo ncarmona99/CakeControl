@@ -241,7 +241,6 @@ public class MenuVenta extends javax.swing.JFrame {
                 ctrlV.buscarPreparacion();
                 mt.addRow(new Object[]{rec.getNombreReceta(),rec.getValorReceta(),rec.getCantReceta()});
                 rec.getColCompra().add((rec.getValorReceta()*rec.getCantReceta()));
-                
                 for (Integer suma : rec.getColCompra()) {
                     acum = suma + acum;
             }

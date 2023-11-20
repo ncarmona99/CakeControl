@@ -15,14 +15,6 @@ public class Receta {
     
     //Lista que guarda temporalmente las recetas que se agregan en la venta
     static ArrayList <Integer> colCompra = new ArrayList<>();
-    
-    public int sumaCompra(int acumulador){
-        for (Integer suma : colCompra) {
-            acumulador = suma + acumulador;
-        }
-        return acumulador;
-    }
-    
 
     public Receta(int codReceta, String nombreReceta, int valorReceta, int stockReceta, int cantReceta, Ingrediente ingrediente) {
         Receta.codReceta = codReceta;
@@ -32,6 +24,7 @@ public class Receta {
         Receta.cantReceta = cantReceta;
         this.ingrediente = ingrediente;
     }
+    
     private Ingrediente ingrediente;
     
     public Receta() {
@@ -92,5 +85,7 @@ public class Receta {
     public void setColCompra(ArrayList<Integer> colCompra) {
         Receta.colCompra = colCompra;
     }
+    
+    
     
 }

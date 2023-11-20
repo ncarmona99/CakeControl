@@ -68,8 +68,10 @@ public class controladorSocio {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/cakecontrol","root", "");
-            String query = "DELETE FROM socio WHERE numrun_socio = '"+socio.getNumrun()+"'";
+            String query = "DELETE FROM venta WHERE numrun_socio = '"+socio.getNumrun()+"'";
+            String query2 = "DELETE FROM socio WHERE numrun_socio = '"+socio.getNumrun()+"'";
             connection.createStatement().executeUpdate(query);
+            connection.createStatement().executeUpdate(query2);
             socio.setCantCompra(0);
             socio.setCelular(null);
             socio.setCorreo(null);
