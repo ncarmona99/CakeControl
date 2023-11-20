@@ -12,17 +12,10 @@ public class Receta {
     private static int valorReceta; //Coste de venta de la receta
     private static int stockReceta;
     private static int cantReceta;
+    private static int cantIng;
     
     //Lista que guarda temporalmente las recetas que se agregan en la venta
     static ArrayList <Integer> colCompra = new ArrayList<>();
-    
-    public int sumaCompra(int acumulador){
-        for (Integer suma : colCompra) {
-            acumulador = suma + acumulador;
-        }
-        return acumulador;
-    }
-    
 
     public Receta(int codReceta, String nombreReceta, int valorReceta, int stockReceta, int cantReceta, Ingrediente ingrediente) {
         Receta.codReceta = codReceta;
@@ -32,6 +25,7 @@ public class Receta {
         Receta.cantReceta = cantReceta;
         this.ingrediente = ingrediente;
     }
+    
     private Ingrediente ingrediente;
     
     public Receta() {
@@ -92,5 +86,15 @@ public class Receta {
     public void setColCompra(ArrayList<Integer> colCompra) {
         Receta.colCompra = colCompra;
     }
+
+    public static int getCantIng() {
+        return cantIng;
+    }
+
+    public static void setCantIng(int cantIng) {
+        Receta.cantIng = cantIng;
+    }
+    
+    
     
 }

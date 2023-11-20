@@ -39,7 +39,6 @@ public class MenuCrearReceta extends javax.swing.JFrame {
         jtxt_valorReceta = new javax.swing.JTextField();
         jbtn_volver = new javax.swing.JButton();
         jtbt_creacionReceta = new javax.swing.JButton();
-        jbtn_modificarReceta = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,13 +65,6 @@ public class MenuCrearReceta extends javax.swing.JFrame {
         jtbt_creacionReceta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtbt_creacionRecetaActionPerformed(evt);
-            }
-        });
-
-        jbtn_modificarReceta.setText("Modificar Receta");
-        jbtn_modificarReceta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtn_modificarRecetaActionPerformed(evt);
             }
         });
 
@@ -112,8 +104,6 @@ public class MenuCrearReceta extends javax.swing.JFrame {
                         .addGap(57, 57, 57))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jtbt_creacionReceta)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbtn_modificarReceta)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -132,9 +122,7 @@ public class MenuCrearReceta extends javax.swing.JFrame {
                         .addGap(24, 24, 24)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jtbt_creacionReceta)
-                                .addComponent(jbtn_modificarReceta))))
+                            .addComponent(jtbt_creacionReceta)))
                     .addComponent(jbtn_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
@@ -182,7 +170,7 @@ public class MenuCrearReceta extends javax.swing.JFrame {
         
         //Captura la información del formulario y la lleva al controlador
         receta.setNombreReceta(this.jtxt_nomCrearReceta.getText());
-        receta.setvalorReceta(Integer.parseInt(this.jtxt_valorReceta.getText()));
+        receta.setValorReceta(Integer.parseInt(this.jtxt_valorReceta.getText()));
 
         //Conexión bd y query
         contRec.crearReceta();
@@ -192,51 +180,23 @@ public class MenuCrearReceta extends javax.swing.JFrame {
         jtxt_valorReceta.setText(null);
     }//GEN-LAST:event_jtbt_creacionRecetaActionPerformed
 
-    private void jbtn_modificarRecetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_modificarRecetaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbtn_modificarRecetaActionPerformed
-
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuCrearReceta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuCrearReceta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuCrearReceta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuCrearReceta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+/*    public static void main(String args[]) {
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MenuCrearReceta().setVisible(true);
             }
         });
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JButton jbtn_modificarReceta;
     private javax.swing.JButton jbtn_volver;
     private javax.swing.JButton jtbt_creacionReceta;
     private javax.swing.JTextField jtxt_nomCrearReceta;

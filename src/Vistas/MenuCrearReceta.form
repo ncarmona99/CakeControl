@@ -72,8 +72,6 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jtbt_creacionReceta" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jbtn_modificarReceta" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -98,10 +96,7 @@
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jtbt_creacionReceta" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jbtn_modificarReceta" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jtbt_creacionReceta" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="jbtn_volver" min="-2" pref="26" max="-2" attributes="0"/>
@@ -146,14 +141,6 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtbt_creacionRecetaActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="jbtn_modificarReceta">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Modificar Receta"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtn_modificarRecetaActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel2">

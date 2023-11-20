@@ -19,7 +19,7 @@ public class ControladorReceta {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/cakecontrol","root", "");
             String query = "INSERT INTO receta(nombre_receta,valor_receta)"
-                    + " values('"+receta.getNombreReceta()+"','"+receta.getvalorReceta()+"')";
+                    + " values('"+receta.getNombreReceta()+"','"+receta.getValorReceta()+"')";
             connection.createStatement().executeUpdate(query);
             JOptionPane.showMessageDialog(null, "Receta creada correctamente");
             
@@ -37,7 +37,7 @@ public class ControladorReceta {
             ResultSet rs = connection.createStatement().executeQuery(query);
             if(rs.next()){
                 receta.setNombreReceta(rs.getString("nombre_receta"));
-                receta.setvalorReceta(Integer.parseInt(rs.getString("valor_receta")));
+                receta.setValorReceta(Integer.parseInt(rs.getString("valor_receta")));
                 
             }
             
